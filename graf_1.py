@@ -53,12 +53,15 @@ i=0
 j=0
 z=0
 r=1
-a=0
+a=1
 count_handing_nodes=0
 #varitant 14
-while(a<=count):
+while(a<count):
     z=random.randint(0,4)
     a+=z
+    if(a>count):
+        a-=z
+        continue
     if(z==0):
         #считаем висячие
         count_handing_nodes+=1
