@@ -31,35 +31,54 @@ def count_levels(num):
             return count_levels(random.randint(1, 48))
 
 
-
+#Количество уровней в графе
 print(count_levels(r))
 
+#массив вершин
 mass_nodes=[]
 
-i=1
+#вывод количества  вершин
 print(count)
 
 
 
 
-print(mass_nodes)
+
+#Инициализация графа, создание первой ноды
 G=nx.Graph()
 G.add_node(1)
 mass_nodes.append(1)
-i=1
+
+i=0
 j=0
-a=True
 z=0
 r=1
+a=0
+count_handing_nodes=0
 #varitant 14
-while(i<=count):
-    z=random.randint(1,5)
+while(a<=count):
+    z=random.randint(0,4)
+    a+=z
+    if(z==0):
+        #считаем висячие
+        count_handing_nodes+=1
+        continue
     for j in range(z):
         r+=1
+        mass_nodes.append(r)
         G.add_node(r)
-        G.add_edge(i,r)
+        G.add_edge(mass_nodes[i],r)
     i+=1
 
+#Вывод массива верши
+print(mass_nodes)
+
+count_handing_nodes+=a-i+1
+
+#Та самая ебучая альфа из второго задания
+alpha=count/count_handing_nodes
+
+print(alpha)
 
 nx.draw(G, with_labels=True, node_color="blue", alpha=0.6, node_size=50)
 
