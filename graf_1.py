@@ -39,28 +39,26 @@ mass_nodes=[]
 i=1
 print(count)
 
-while(i<=count):
-    mass_nodes.append(i)
-    i+=1
+
+
 
 print(mass_nodes)
 G=nx.Graph()
 G.add_node(1)
-
+mass_nodes.append(1)
 i=1
-j=1
+j=0
 a=True
 z=0
-у=0
-while(i<count):
-   z=random.randint(1,5)
-   у+=z
-   if(i+z>count):
-       у=0
-       continue
-   else:
-       while(z>0):
-
+r=1
+#varitant 14
+while(i<=count):
+    z=random.randint(1,5)
+    for j in range(z):
+        r+=1
+        G.add_node(r)
+        G.add_edge(i,r)
+    i+=1
 
 
 nx.draw(G, with_labels=True, node_color="blue", alpha=0.6, node_size=50)
