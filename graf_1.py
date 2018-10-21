@@ -1,6 +1,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+import gist as g
+
+
 
 G=nx.Graph()
 
@@ -56,9 +59,11 @@ r=1
 a=1
 count_handing_nodes=0
 #varitant 14
+mass_count_nodes=[]
 while(a<count):
     z=random.randint(0,4)
     a+=z
+    mass_count_nodes.append(z)
     if(a>count):
         a-=z
         continue
@@ -76,6 +81,7 @@ while(a<count):
 #Вывод массива верши
 print(mass_nodes)
 
+
 count_handing_nodes+=a-i+1
 
 #Та самая ебучая альфа из второго задания
@@ -89,6 +95,7 @@ plt.savefig("edge_colormap.png")
 plt.show()
 
 
+g.create_gist(mass_count_nodes)
 
 
 
