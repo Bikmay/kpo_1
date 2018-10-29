@@ -2,6 +2,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 import gist as g
+#from docx import *
+
+#https://python-docx.readthedocs.io/en/latest/
 
 def i(count_new):
 
@@ -9,8 +12,7 @@ def i(count_new):
     count=0
 
     count=count_new
-   # n=int(input())
-
+   # n=int(input())4
    # if(n==1):
     if(True):
         count = random.randint(1, 48)
@@ -89,6 +91,8 @@ def i(count_new):
             mass_nodes.append(r)
             G.add_node(r)
             G.add_edge(mass_nodes[i],r)
+
+            print(str(mass_nodes[i])+'-'+str(r))
         i+=1
 
     #Вывод массива верши
@@ -100,8 +104,8 @@ def i(count_new):
     #Та самая ебучая альфа из второго задания
     alpha=count/count_handing_nodes
     print("|")
-    return alpha
 
+    return alpha
     nx.draw(G, with_labels=True, node_color="blue", alpha=0.6, node_size=50)
 
     plt.savefig("edge_colormap.png")
@@ -109,6 +113,7 @@ def i(count_new):
 
 
     g.create_gist(mass_count_nodes)
+
 
 
 
