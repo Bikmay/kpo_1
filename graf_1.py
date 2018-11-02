@@ -6,18 +6,18 @@ import gist as g
 
 #https://python-docx.readthedocs.io/en/latest/
 
-def i(count_new):
+def i(count_new, handing_nodes = []):
 
 
     count=0
 
     count=count_new
-   # n=int(input())4
-   # if(n==1):
-    if(True):
-        count = random.randint(1, 48)
-    elif(n==2):
-        count=int(input())
+   #  n=int(input())
+   #  if(n==1):
+   # #  if(True):
+   #      count = random.randint(1, 200)
+   #  elif(n==2):
+   #      count=int(input())
 
     print(count)
     G=nx.Graph()
@@ -92,7 +92,7 @@ def i(count_new):
             G.add_node(r)
             G.add_edge(mass_nodes[i],r)
 
-            print(str(mass_nodes[i])+'-'+str(r))
+            # print(str(mass_nodes[i])+'-'+str(r), end=", ")
         i+=1
 
     #Вывод массива верши
@@ -100,10 +100,12 @@ def i(count_new):
 
 
     count_handing_nodes+=a-i+1
+    handing_nodes.append(count_handing_nodes)
 
-    #Та самая ебучая альфа из второго задания
+    print(count_handing_nodes)
+
     alpha=count/count_handing_nodes
-    print("|")
+    print("alpha: " + str(alpha))
 
     return alpha
     nx.draw(G, with_labels=True, node_color="blue", alpha=0.6, node_size=50)
@@ -113,7 +115,6 @@ def i(count_new):
 
 
     g.create_gist(mass_count_nodes)
-
 
 
 
