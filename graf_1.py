@@ -9,7 +9,7 @@ import gist as g
 def i(count_new, handing_nodes = []):
 
 
-    count=0
+
 
     count=count_new
    #  n=int(input())
@@ -72,9 +72,15 @@ def i(count_new, handing_nodes = []):
     z=0
     r=1
     a=1
+    mass2=[]
     count_handing_nodes=0
     #varitant 14
     mass_count_nodes=[]
+
+    o9=0
+    _2=[]
+
+
     while(a<count):
         z=random.randint(0,4)
         a+=z
@@ -82,17 +88,22 @@ def i(count_new, handing_nodes = []):
         if(a>count):
             a-=z
             continue
+        else:
+            _2.append(z)
         if(z==0):
-            #считаем висячие
-            count_handing_nodes+=1
+
+            mass2.append(mass_nodes[i-1])
+            i+=1
             continue
+
+        o9=0
         for j in range(z):
             r+=1
             mass_nodes.append(r)
             G.add_node(r)
             G.add_edge(mass_nodes[i],r)
 
-            # print(str(mass_nodes[i])+'-'+str(r), end=", ")
+            print(str(mass_nodes[i])+'-'+str(r), end=", ")
         i+=1
 
     #Вывод массива верши
@@ -100,22 +111,33 @@ def i(count_new, handing_nodes = []):
 
 
     count_handing_nodes+=a-i+1
-    handing_nodes.append(count_handing_nodes)
+    ou=count_handing_nodes-count_handing_nodes*2
 
-    print(count_handing_nodes)
+   # n_mass=mass_nodes[-1:ou]
+
+   # print(n_mass)
+    print('zz')
+    for a in range(len(_2)):
+        if(_2[a]==0):
+            print(a)
+
+
+   # for u in range(len(n_mass)):
+     #   mass2.append(n_mass[u])
 
     alpha=count/count_handing_nodes
     print("alpha: " + str(alpha))
 
-    return alpha
+
     nx.draw(G, with_labels=True, node_color="blue", alpha=0.6, node_size=50)
 
     plt.savefig("edge_colormap.png")
     plt.show()
 
 
-    g.create_gist(mass_count_nodes)
 
+    g.create_gist(_2)
+    return alpha
 
 
 
