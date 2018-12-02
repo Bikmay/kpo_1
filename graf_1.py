@@ -89,10 +89,12 @@ def i(count_new, handing_nodes = []):
             a-=z
             continue
         else:
-            _2.append(z)
+            mass2.append(z)
+
         if(z==0):
 
-            mass2.append(mass_nodes[i-1])
+            _2.append(mass_nodes[i]-1)
+
             i+=1
             continue
 
@@ -117,9 +119,7 @@ def i(count_new, handing_nodes = []):
 
    # print(n_mass)
     print('zz')
-    for a in range(len(_2)):
-        if(_2[a]==0):
-            print(a)
+    print(_2)
 
 
    # for u in range(len(n_mass)):
@@ -136,7 +136,7 @@ def i(count_new, handing_nodes = []):
 
 
 
-    g.create_gist(_2)
+    g.create_gist(mass2)
     return alpha
 
 
