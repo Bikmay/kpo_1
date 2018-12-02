@@ -108,6 +108,10 @@ def i(count_new, handing_nodes = []):
             print(str(mass_nodes[i])+'-'+str(r), end=", ")
         i+=1
 
+    print(len(mass_nodes)-z)
+    for i in range(len(mass_nodes)-z):
+        _2.append(mass_nodes[i+z])
+
     #Вывод массива верши
     print(mass_nodes)
 
